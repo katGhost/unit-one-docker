@@ -53,3 +53,17 @@ python --version
 
 ## Virtual Environments and Data Pipelines
 
+Add thes early on in the gitignore to avoid tracking of these files:
+
+```
+*.parquet
+*.csv
+*.json
+data/
+```
+
+if files were tracked accidentally.
+
+```bash
+git rm --cached '*.file_extension'
+```
