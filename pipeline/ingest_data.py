@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import pandas as pd
-from sqlalchemy import create_engine
-from tqdm.auto import tqdm
-import click
+import pandas as pd     #type: ignore
+from sqlalchemy import create_engine    #type: ignore
+from tqdm.auto import tqdm  #type: ignore
+import click    #type: ignore
 
 
 
@@ -43,9 +43,9 @@ parse_dates = [
 @click.option('--month', default=1, type=int, help='Month of taxi data')
 @click.option('--target-table', default='yellow_taxi_data', help='Target table name')
 @click.option('--chunksize', default=100000, type=int, help='Chunk size for reading CSV')
-def run(pg_user, pg_pass, pg_host, pg_db, port, year, month, target_table, chunksize):
-    """Ingest NYC taxi data into PostgreSQL"""
+def ingest_data(pg_user, pg_pass, pg_host, pg_db, port, year, month, target_table, chunksize):
     
+    """Ingest NYC taxi data into PostgreSQL"""
     prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/'
     url = f'{prefix}/yellow_tripdata_{year}-{month:02d}.csv.gz'
 
@@ -78,8 +78,9 @@ def run(pg_user, pg_pass, pg_host, pg_db, port, year, month, target_table, chunk
         )
 
 
+
 if __name__ == '__main__':
-    run()
+    ingest_data()
 
 
 
