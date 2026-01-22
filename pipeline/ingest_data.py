@@ -45,7 +45,7 @@ parse_dates = [
 @click.option('--chunksize', type=int, default=100000, help='Chunksize for ingestion')
 def run(pg_user, pg_pass, pg_host, pg_port, pg_db, year, month, chunksize, target_table):
 
-    engine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')
+    engine = create_engine(f'postgresql://{pg_user}:{pg_pass}@{pg_host}:{pg_port}/{pg_db}')
 
     # Read a sample of the data
     prefix = 'https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/'
