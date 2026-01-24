@@ -3,6 +3,7 @@
 
 import pandas as pd
 from sqlalchemy import create_engine
+from tqdm import tqdm
 import click
 
 @click.command()
@@ -22,15 +23,18 @@ def run(pg_user, pg_pass, pg_host, pg_port, pg_db, target_table):
 
     df = pd.read_csv(url)
 
-    # Normalize column names
-    df.columns = [c.lower() for c in df.columns]
+    # Normalize column names with capitals for acceptable queries in pgadmin
+    #df.columns = [c.lower() for c in df.columns]
 
-    df.to_sql(
-        name=target_table,
-        con=engine,
-        if_exists='replace',
-        index=False
-    )
+    loading = True
+    if loading:
+        df.to_sql(
+            name=target_table,
+            con=engine,
+            if_exists='replace',
+            index=False
+        )
+        print(f'loading {tqdm(df)} data')
 
     print(f"Loaded {len(df)} rows into {target_table}")
 

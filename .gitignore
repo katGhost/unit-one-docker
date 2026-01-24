@@ -90,7 +90,6 @@ ipython_config.py
 #   intended to run in multiple environments; otherwise, check them in:
 # .python-version
 *.parquet
-*.csv
 *.json
 data/
 
@@ -104,10 +103,8 @@ data/
 # UV
 #   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
-*uv.lock
-*.lock
+#   commonly ignored for libraries. uv.lock
+.ipynb
 
 # poetry
 #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
