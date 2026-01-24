@@ -1,3 +1,5 @@
+# DTC Zoomcamp: Data Engineering Homework 1
+
 ## Running the upload_data for taxi_zones:
 
 uv run python upload_data.py \
@@ -70,5 +72,6 @@ WHERE z_pu.zone = 'East Harlem North'
   AND g.lpep_pickup_datetime < '2025-12-01'
 ORDER BY g.tip_amount DESC
 LIMIT 1;
+
 
 
