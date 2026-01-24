@@ -67,3 +67,7 @@ if files were tracked accidentally.
 ```bash
 git rm --cached '*.file_extension'
 ```
+
+## Homework SQL Queries Location:
+
+In the README document inside the pipeline directory. Thank you!
